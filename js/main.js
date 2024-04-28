@@ -61,7 +61,7 @@ function getTitlesArray(queryLink) {
             slider.insertBefore(element, slider.firstChild);
           }
         }
-        viewPosters(titles);
+        viewPosters(titles, 0);
         // Save titles to Local Storage
         localStorage.setItem('titles', JSON.stringify(titles));
       } else {
@@ -98,14 +98,23 @@ function setTitleName () {
 	document.querySelector('.roulette__text').querySelector('p').innerHTML=titleName;
 }
 
-function viewPosters (animeList) {
+function viewPosters (animeList, index) {
 	const slider = document.querySelectorAll('.roulette__element');
 	for (var i = 0; i < slider.length; i++) {
-		let link = 'https://shikimori.one'+animeList[i].image;
+    let realIndex=index;
+    if (realIndex<0) {
+      while (realIndex<0) {
+        realIndex=animeList.length-1+realIndex;
+      }
+    }
+		let link = 'https://shikimori.one'+animeList[realIndex].image;
 		slider[i].querySelector('img').src=link;
-		slider[i].querySelector('img').alt=animeList[i].name;
+		slider[i].querySelector('img').alt=animeList[realIndex].name;
+    index++;
 	}
 }
+
+
 
 function Roll (titles) {
 	let animeList = shuffleArray(titles);
@@ -114,16 +123,15 @@ function Roll (titles) {
     const maxDelay = 1000;
     const totalTime = 20000;
     const thresholdTime = totalTime * 0.7;
+    let currentElement = 0;
     let elapsedTime = 0;
 
     const startTime = Date.now();
 
     const executeShift = () => {
-    	let lastElement = animeList.pop();
-		  animeList.unshift(lastElement);
-		  viewPosters(animeList);
+		  viewPosters(animeList, currentElement);
 		  setTitleName();
-
+      currentElement--;
     	const now = Date.now();
     	elapsedTime = now - startTime;
     	const progress = elapsedTime / totalTime;
