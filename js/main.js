@@ -3,22 +3,17 @@ const titles = JSON.parse(localStorage.getItem('titles')) || [];
 let profileUrl = "https://shikimori.one/Insonit+Venatus";
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Get references to DOM elements
   const inputField = document.getElementById('inputField');
   const submitButton = document.getElementById('submitButton');
   const warningMessage = document.getElementById('warningMessage');
 
-  // Add event listener to the submit button
   submitButton.addEventListener('click', function() {
-    // Get the value of the input field
     const inputData = inputField.value.trim();
 
-    // Check if the input field is empty
     if (inputData === '') {
       // If empty, display the warning message
       warningMessage.style.display = 'block';
     } else {
-      // If not empty, do something with the data (e.g., send it to a server)
       let queryLink = getQueryUrl(inputData);
       getTitlesArray(queryLink);
       // Clear the warning message
@@ -62,10 +57,11 @@ function getTitlesArray(queryLink) {
           }
         }
         viewPosters(titles, 0);
+        setTitleName();
         // Save titles to Local Storage
         localStorage.setItem('titles', JSON.stringify(titles));
       } else {
-        console.error('JSON response is not an array');
+        console.error('JSON response is not an new Array');
       }
 
     } else {
@@ -82,9 +78,6 @@ function getTitlesArray(queryLink) {
   xhr.send();
 }
 
-
-setTitleName();
-
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -94,7 +87,7 @@ function shuffleArray(array) {
 }
 
 function setTitleName () {
-	let titleName = document.querySelector('.roulette__element_center').querySelector('img').alt;
+	let titleName = document.querySelector('.roulette__element_center').querySelector('img').dataset.name;
 	document.querySelector('.roulette__text').querySelector('p').innerHTML=titleName;
 }
 
@@ -109,7 +102,7 @@ function viewPosters (animeList, index) {
     }
 		let link = 'https://shikimori.one'+animeList[realIndex].image;
 		slider[i].querySelector('img').src=link;
-		slider[i].querySelector('img').alt=animeList[realIndex].name;
+		slider[i].querySelector('img').setAttribute('data-name', animeList[realIndex].name);
     index++;
 	}
 }
