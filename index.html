@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="link-form">
+		<div class="link-form__form">
+			<input type="text" id="inputField" placeholder="https://shikimori.one/...">
+			<button id="submitButton">Start</button>
+		</div>
+		<div class="link-form__error">
+			<div id="warningMessage" style="display: none; color: red;">Please enter data</div>
+		</div>
+	</div>
+	<div class="roulette">
+		<div class="roulette__images">
+			<div class="roulette__slider">
+				<div class="roulette__element roulette__element_edge">
+					<img src="" alt="">
+				</div>
+				<div class="roulette__element roulette__element_side">
+					<img src="" alt="">
+				</div>
+				<div class="roulette__element roulette__element_center">
+					<img src="" alt="">
+				</div>
+				<div class="roulette__element roulette__element_side">
+					<img src="" alt="">
+				</div>
+				<div class="roulette__element roulette__element_edge">
+					<img src="" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="roulette__text">
+			<p></p>
+		</div>
+		<div class="roulette__button">
+			<button onclick="Roll(titles);">ROLL</button>
+			<audio src="sound/winner.mp3" id="winner"></audio>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+</body>
+</html>

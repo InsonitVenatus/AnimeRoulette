@@ -1,0 +1,63 @@
+@import "nullstyle.scss";
+
+.roulette {
+	&__images {
+		padding: 20px 0;
+	}
+	&__slider {
+		//border: 10px solid #ece89d;
+		display: flex;
+		justify-content:space-around;
+		align-items:center;
+		height: 400px;
+		width: 100%;
+	}
+	&__element {
+		//border: 5px solid #5e5373;
+		height: 100%;
+		width: 20%;
+		display:flex;
+  		align-items:center;
+  		justify-content: center;
+		img {
+			height: 100%;
+			width: auto;
+		}
+		&_edge {
+			padding: 50px;
+			img {
+				height: 80%;
+				width: auto;
+				opacity: 0.5;
+			}
+		}
+		&_side {
+			padding: 20px;
+			img {
+				height: 90%;
+				width: auto;
+				opacity: 0.7;
+			}
+		}
+		&_disabled {
+			display: none;
+		}
+		&_center {}
+	}
+	&__text {
+		padding: 40px;
+		text-align: center;
+		p {
+			 font: 40px Arial, sans-serif;
+		}
+	}
+	&__button {
+		padding: 40px;
+		text-align: center;
+		button {
+			
+		}
+	}
+}
+
+
