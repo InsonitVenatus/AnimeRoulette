@@ -72,4 +72,10 @@ img {
   padding: 0 12px;
   box-sizing: border-box;
 }
+.roulette-element img {
+  height: 280px;
+}
+.roulette-element-title {
+  min-height: 3em;
+}
 
