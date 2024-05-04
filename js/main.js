@@ -112,7 +112,7 @@ function viewPosters (animeList, index) {
 function Roll (titles) {
 	let animeList = shuffleArray(titles);
 
-	let delay = 1000;
+	let delay = 100;
     const maxDelay = 1000;
     const totalTime = 20000;
     const thresholdTime = totalTime * 0.7;
@@ -138,8 +138,9 @@ function Roll (titles) {
         		delay = Math.min(delay * 1.02, maxDelay);
       	}
       	setTimeout(() => {
-          console.log('finish');
+          
           executeShift();
+          console.log('finish');
         }, delay);
     	}
     	else {
