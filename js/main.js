@@ -112,7 +112,7 @@ function viewPosters (animeList, index) {
 function Roll (titles) {
 	let animeList = shuffleArray(titles);
 
-	let delay = 100;
+	let delay = 1000;
     const maxDelay = 1000;
     const totalTime = 20000;
     const thresholdTime = totalTime * 0.7;
@@ -122,6 +122,7 @@ function Roll (titles) {
     const startTime = Date.now();
 
     const executeShift = () => {
+      console.log('start');
 		  viewPosters(animeList, currentElement);
 		  setTitleName();
       currentElement--;
@@ -136,7 +137,10 @@ function Roll (titles) {
       	else {
         		delay = Math.min(delay * 1.02, maxDelay);
       	}
-      	setTimeout(executeShift, delay);
+      	setTimeout(() => {
+          console.log('finish');
+          executeShift();
+        }, delay);
     	}
     	else {
     		let sound = document.getElementById("winner");
