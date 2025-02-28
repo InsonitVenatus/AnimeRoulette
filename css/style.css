@@ -85,6 +85,7 @@ h1, h2, h3, h4, h5, h6 {
           align-items: center;
   height: 400px;
   width: 100%;
+  position: relative;
 }
 .roulette__element {
   height: 100%;
@@ -98,13 +99,19 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .roulette__element img {
   height: 100%;
   width: auto;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .roulette__element_edge {
   padding: 50px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
 .roulette__element_edge img {
   height: 80%;
@@ -113,6 +120,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .roulette__element_side {
   padding: 20px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 .roulette__element_side img {
   height: 90%;
@@ -121,6 +130,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .roulette__element_disabled {
   display: none;
+}
+.roulette__element_center {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 .roulette__text {
   padding: 40px;

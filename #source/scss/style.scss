@@ -11,6 +11,7 @@
 		align-items:center;
 		height: 400px;
 		width: 100%;
+		position: relative;
 	}
 	&__element {
 		//border: 5px solid #5e5373;
@@ -19,12 +20,15 @@
 		display:flex;
   		align-items:center;
   		justify-content: center;
+  		transition: all 0.5s ease-in-out;
 		img {
 			height: 100%;
 			width: auto;
+			transition: all 0.5s ease-in-out;
 		}
 		&_edge {
 			padding: 50px;
+			transform: scale(0.8);
 			img {
 				height: 80%;
 				width: auto;
@@ -33,6 +37,7 @@
 		}
 		&_side {
 			padding: 20px;
+			transform: scale(0.9);
 			img {
 				height: 90%;
 				width: auto;
@@ -42,7 +47,10 @@
 		&_disabled {
 			display: none;
 		}
-		&_center {}
+		&_center {
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 	&__text {
 		padding: 40px;
